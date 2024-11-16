@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0ohcpod72tyt"]
+
+[ext_resource type="Texture2D" uid="uid://bhtskpnd2fes" path="res://art/rocket.tres" id="1_tf5qb"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nh48n"]
+
+[node name="Area2D" type="Area2D"]
+disable_mode = 2
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(403, 393)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2(0, -1)
+polygon = PackedVector2Array(40, -100, 80, 0, 80, 180, 0, 180, 0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(41.0122, 30.4889)
+scale = Vector2(-241.416, 314.478)
+texture = ExtResource("1_tf5qb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 45)
+shape = SubResource("WorldBoundaryShape2D_nh48n")
