@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuiot1t7xyk7p"]
+
+[ext_resource type="Texture2D" uid="uid://dbbxo6vsbm6if" path="res://assets/landing.jpg" id="1_d8fed"]
+[ext_resource type="Script" path="res://landingbutton.gd" id="2_p5m28"]
+
+[node name="landing" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(614, 319)
+scale = Vector2(1.93594, 0.996875)
+texture = ExtResource("1_d8fed")
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 87.0
+offset_top = 100.0
+offset_right = 588.0
+offset_bottom = 245.0
+theme_override_font_sizes/font_size = 21
+text = "You were able to make it through the chopsticks! "
+
+[node name="Button" type="Button" parent="Label"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 62.0
+offset_right = 312.0
+offset_bottom = 154.0
+text = "play again?"
+script = ExtResource("2_p5m28")
+
+[connection signal="pressed" from="Label/Button" to="Label/Button" method="_on_pressed"]

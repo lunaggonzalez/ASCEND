@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjgxn76u3n3b"]
+
+[ext_resource type="Texture2D" uid="uid://dkoslfqo6er3p" path="res://assets/crash.jpg" id="1_smpat"]
+[ext_resource type="Script" path="res://crashbutton.gd" id="2_povcb"]
+
+[node name="crash" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(577, 318.75)
+scale = Vector2(1.125, 1.13874)
+texture = ExtResource("1_smpat")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 321)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 191.0
+offset_top = 191.0
+offset_right = 615.0
+offset_bottom = 260.0
+theme_override_font_sizes/font_size = 25
+text = "You failed the landing and crashed!
+"
+
+[node name="Button" type="Button" parent="Label"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 47.0
+offset_right = 223.0
+offset_bottom = 145.0
+text = "play again?"
+script = ExtResource("2_povcb")
+
+[connection signal="pressed" from="Label/Button" to="Label/Button" method="_on_pressed"]
