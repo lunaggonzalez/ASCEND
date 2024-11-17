@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://c26kecq6m6jrx"]
+
+[ext_resource type="Texture2D" uid="uid://d3f3dyapx1mum" path="res://art/recboat.jpg" id="1_wet8v"]
+[ext_resource type="Script" path="res://booster.gd" id="2_01jck"]
+[ext_resource type="Texture2D" uid="uid://c87xswecifxkj" path="res://assets/firstimage.jpg" id="2_oktje"]
+[ext_resource type="Texture2D" uid="uid://cq7pgaoctk3qn" path="res://art/booster.png" id="3_o51jf"]
+[ext_resource type="Texture2D" uid="uid://cskj3aagiw5dp" path="res://scenes/Screenshot 2024-11-17 at 2.26.19 AM.png" id="5_xeeat"]
+[ext_resource type="Texture2D" uid="uid://x5rr8qptw1gv" path="res://scenes/fairing.jpg" id="6_txgsv"]
+[ext_resource type="Script" path="res://fairing.gd" id="7_1lqit"]
+
+[node name="recovery" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(588, 320)
+
+[node name="Firstimage" type="Sprite2D" parent="."]
+position = Vector2(569, 85.25)
+scale = Vector2(1.72917, 1.67321)
+texture = ExtResource("2_oktje")
+
+[node name="Recboat" type="Sprite2D" parent="."]
+position = Vector2(1049, 393)
+scale = Vector2(1.09375, 1.35417)
+texture = ExtResource("1_wet8v")
+
+[node name="Screenshot2024-11-17At2_26_19Am" type="Sprite2D" parent="."]
+position = Vector2(552, 70)
+scale = Vector2(0.522059, 0.494488)
+texture = ExtResource("5_xeeat")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(163, 230)
+scale = Vector2(0.436508, 0.397831)
+texture = ExtResource("3_o51jf")
+script = ExtResource("2_01jck")
+
+[node name="Fairing" type="Sprite2D" parent="."]
+position = Vector2(564, -367)
+scale = Vector2(0.248447, 0.188565)
+texture = ExtResource("6_txgsv")
+script = ExtResource("7_1lqit")
