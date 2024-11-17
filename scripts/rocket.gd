@@ -12,7 +12,6 @@ var oxygen = 0
 var force_point = Vector2(0, -180)
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
-	emit_signal("fuel_left", methane - fuel_cost)
 	thing = scale(methane, 500, 4000, 1, 3)-scale(oxygen, 500, 4000, 1, 3)
 	if thing < 0:
 		thing *= -1
@@ -28,8 +27,10 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 			force_point.y += 1
 		if fuel_cost == methane:
 			v_extra = Vector2(0,0)
-		if rotation_degrees >= 90 && fuel_cost <= methane:
+		if rotation_degrees >= 90 && fuel_cost < methane:
 			rotation_degrees = 90
+		if rotation_degrees >= 90 && fuel_cost >= methane:
+			get_tree().change_scene_to_file("res://crash.tscn")
 		if global_position.y < -8000 && state.get_velocity_at_local_position(global_position).x > 250000 && methane - fuel_cost >= 200:
 			get_tree().change_scene_to_file("res://scenes/launch_win.tscn")
 		print(state.get_velocity_at_local_position(global_position).x , " Rotation: ", rotation_degrees, " Fuel: ", methane - fuel_cost, " Exponent: ", expo)
