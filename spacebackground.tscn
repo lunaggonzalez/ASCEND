@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dolxbhfojaeqv"]
+
+[ext_resource type="Texture2D" uid="uid://dnwhjtkkfmej8" path="res://assets/space.jpg" id="1_4bic7"]
+
+[node name="spacebackground" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 318.5)
+scale = Vector2(0.965, 0.876)
+texture = ExtResource("1_4bic7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(569, 315)
