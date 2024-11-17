@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0ohcpod72tyt"]
+[gd_scene load_steps=6 format=3 uid="uid://b0ohcpod72tyt"]
 
 [ext_resource type="Script" path="res://scripts/rocket.gd" id="1_jsk8g"]
 [ext_resource type="Texture2D" uid="uid://d037sem1a3h5t" path="res://art/Starship.png" id="2_rndmo"]
 [ext_resource type="Shape2D" uid="uid://but12wn0byn3s" path="res://collision/world.tres" id="3_yv1fu"]
+[ext_resource type="Texture2D" uid="uid://dnwhjtkkfmej8" path="res://assets/space.jpg" id="4_6wmgm"]
+[ext_resource type="Texture2D" uid="uid://0qb1jp1e3xw8" path="res://scenes/Screenshot 2024-11-16 at 5.53.46 PM.png" id="5_v4tf0"]
 
 [node name="Area2D" type="Area2D"]
+position = Vector2(-5046, 2502)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2(401, 515)
@@ -25,71 +28,150 @@ region_rect = Rect2(0, 0, 80, 180)
 [node name="Camera2D" type="Camera2D" parent="RigidBody2D"]
 position = Vector2(4, -125)
 
-[node name="Panel" type="Panel" parent="."]
-offset_top = 104.0
-offset_right = 172.0
-offset_bottom = 271.0
-
-[node name="Button" type="Button" parent="Panel"]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 120.0
-offset_right = 115.0
-offset_bottom = 153.0
-text = "Launch"
-
-[node name="OptionButton" type="OptionButton" parent="Panel"]
-layout_mode = 0
-offset_left = 99.0
-offset_top = 75.0
-offset_right = 163.0
-offset_bottom = 106.0
-selected = 0
-item_count = 4
-popup/item_0/text = "1"
-popup/item_1/text = "2"
-popup/item_1/id = 1
-popup/item_2/text = "4"
-popup/item_2/id = 2
-popup/item_3/text = "8"
-popup/item_3/id = 3
-
-[node name="Label" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 26.0
-offset_right = 105.0
-offset_bottom = 108.0
-text = "Launch Velocity Multiplier"
-autowrap_mode = 2
-
-[node name="CenterOfMass" type="HSlider" parent="Panel"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 161.0
-offset_bottom = 22.0
-min_value = -100.0
-max_value = 180.0
-value = 40.0
-
-[node name="Weight" type="HSlider" parent="Panel"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 189.0
-offset_right = 167.0
-offset_bottom = 205.0
-max_value = 25.0
-step = 5.0
-value = 5.0
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 200)
 shape = ExtResource("3_yv1fu")
 
-[connection signal="pressed" from="Panel/Button" to="RigidBody2D" method="_on_button_pressed"]
-[connection signal="item_selected" from="Panel/OptionButton" to="RigidBody2D" method="_on_option_button_item_selected"]
-[connection signal="value_changed" from="Panel/CenterOfMass" to="RigidBody2D" method="_on_h_slider_value_changed"]
-[connection signal="value_changed" from="Panel/Weight" to="RigidBody2D" method="_on_weight_value_changed"]
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+visibility_layer = 2
+z_index = -10
+position = Vector2(-26472.5, -36457)
+scale = Vector2(203.358, 89.888)
+texture = ExtResource("4_6wmgm")
+
+[node name="Sliders" type="Node2D" parent="."]
+position = Vector2(-171, 76)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sliders"]
+position = Vector2(574.639, 557.5)
+scale = Vector2(1.29677, 0.70082)
+texture = ExtResource("5_v4tf0")
+
+[node name="Label" type="Label" parent="Sliders"]
+offset_left = -2.0
+offset_top = 607.0
+offset_right = 72.0
+offset_bottom = 630.0
+text = "Methane "
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Sliders"]
+offset_left = 38.0
+offset_top = 490.0
+offset_right = 149.0
+offset_bottom = 513.0
+text = "Liquid Oxygen"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="Sliders"]
+offset_left = 129.0
+offset_top = 607.0
+offset_right = 240.0
+offset_bottom = 630.0
+text = "Mass"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label4" type="Label" parent="Sliders"]
+offset_left = 248.0
+offset_top = 489.0
+offset_right = 359.0
+offset_bottom = 512.0
+text = "Wind"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label5" type="Label" parent="Sliders"]
+offset_left = 222.0
+offset_top = 512.0
+offset_right = 333.0
+offset_bottom = 535.0
+text = "<- launchpad"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label6" type="Label" parent="Sliders"]
+offset_left = 221.0
+offset_top = 539.0
+offset_right = 334.0
+offset_bottom = 588.0
+text = "upper 
+atmosphere ->"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label7" type="Label" parent="Sliders"]
+offset_left = 363.0
+offset_top = 605.0
+offset_right = 476.0
+offset_bottom = 654.0
+text = "Temp (*F)"
+metadata/_edit_use_anchors_ = true
+
+[node name="Methane" type="VSlider" parent="Sliders"]
+offset_left = 31.0
+offset_top = 518.0
+offset_right = 47.0
+offset_bottom = 607.0
+min_value = 500.0
+max_value = 4000.0
+step = 100.0
+value = 900.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Oxygen" type="VSlider" parent="Sliders"]
+offset_left = 83.0
+offset_top = 518.0
+offset_right = 99.0
+offset_bottom = 607.0
+min_value = 500.0
+max_value = 4000.0
+step = 100.0
+value = 900.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Mass" type="VSlider" parent="Sliders"]
+offset_left = 139.0
+offset_top = 518.0
+offset_right = 155.0
+offset_bottom = 607.0
+max_value = 25.0
+step = 5.0
+value = 5.0
+metadata/_edit_use_anchors_ = true
+
+[node name="VSlider4" type="VSlider" parent="Sliders"]
+offset_left = 200.0
+offset_top = 518.0
+offset_right = 216.0
+offset_bottom = 607.0
+max_value = 50.0
+step = 5.0
+metadata/_edit_use_anchors_ = true
+
+[node name="VSlider5" type="VSlider" parent="Sliders"]
+offset_left = 336.0
+offset_top = 518.0
+offset_right = 352.0
+offset_bottom = 607.0
+max_value = 300.0
+step = 30.0
+metadata/_edit_use_anchors_ = true
+
+[node name="VSlider6" type="VSlider" parent="Sliders"]
+offset_left = 388.0
+offset_top = 518.0
+offset_right = 404.0
+offset_bottom = 607.0
+step = 10.0
+metadata/_edit_use_anchors_ = true
+
+[node name="launch" type="Button" parent="Sliders"]
+offset_left = 809.0
+offset_top = 504.0
+offset_right = 1113.0
+offset_bottom = 616.0
+text = "Launch"
+
+[connection signal="value_changed" from="Sliders/Methane" to="RigidBody2D" method="_on_methane_value_changed"]
+[connection signal="value_changed" from="Sliders/Oxygen" to="RigidBody2D" method="_on_oxygen_value_changed"]
+[connection signal="value_changed" from="Sliders/Mass" to="RigidBody2D" method="_on_mass_value_changed"]
+[connection signal="pressed" from="Sliders/launch" to="RigidBody2D" method="_on_launch_pressed"]
