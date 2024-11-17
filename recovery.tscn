@@ -24,7 +24,7 @@ scale = Vector2(1.09375, 1.35417)
 texture = ExtResource("1_wet8v")
 
 [node name="Screenshot2024-11-17At2_26_19Am" type="Sprite2D" parent="."]
-position = Vector2(552, 70)
+position = Vector2(524, 235)
 scale = Vector2(0.522059, 0.494488)
 texture = ExtResource("5_xeeat")
 
@@ -35,7 +35,7 @@ texture = ExtResource("3_o51jf")
 script = ExtResource("2_01jck")
 
 [node name="Fairing" type="Sprite2D" parent="."]
-position = Vector2(564, -367)
+position = Vector2(892, 127)
 scale = Vector2(0.248447, 0.188565)
 texture = ExtResource("6_txgsv")
 script = ExtResource("7_1lqit")

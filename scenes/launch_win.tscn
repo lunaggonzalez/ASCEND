@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkaeo4cu3bwqs"]
+[gd_scene load_steps=3 format=3 uid="uid://bkaeo4cu3bwqs"]
 
 [ext_resource type="Texture2D" uid="uid://60blu8nkurn8" path="res://art/liftoff.jpg" id="1_8bw6k"]
+[ext_resource type="Script" path="res://scripts/button.gd" id="2_hc5vr"]
 
 [node name="LaunchWin" type="Control"]
 layout_mode = 3
@@ -30,3 +31,6 @@ offset_top = 515.0
 offset_right = 340.0
 offset_bottom = 640.0
 text = "To Stage 1 & Fairing Recovery"
+script = ExtResource("2_hc5vr")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
