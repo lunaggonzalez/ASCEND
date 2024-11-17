@@ -22,6 +22,9 @@ scale = Vector2(0.175, 0.175)
 texture = ExtResource("2_rndmo")
 region_rect = Rect2(0, 0, 80, 180)
 
+[node name="Camera2D" type="Camera2D" parent="RigidBody2D"]
+position = Vector2(4, -125)
+
 [node name="Panel" type="Panel" parent="."]
 offset_top = 104.0
 offset_right = 172.0
@@ -85,9 +88,6 @@ value = 5.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 200)
 shape = ExtResource("3_yv1fu")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(405, 390)
 
 [connection signal="pressed" from="Panel/Button" to="RigidBody2D" method="_on_button_pressed"]
 [connection signal="item_selected" from="Panel/OptionButton" to="RigidBody2D" method="_on_option_button_item_selected"]
