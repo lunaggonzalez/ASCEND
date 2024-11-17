@@ -30,7 +30,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		if rotation_degrees >= 90 && fuel_cost <= methane:
 			rotation_degrees = 90
 		if global_position.y < -8000 && state.get_velocity_at_local_position(global_position).x > 250000 && methane - fuel_cost >= 250:
-			get_tree().paused = true
+			get_tree().change_scene_to_file("res://scenes/launch_win.tscn")
 		print(state.get_velocity_at_local_position(global_position).x , " Rotation: ", rotation_degrees, " Fuel: ", methane - fuel_cost, " Exponent: ", expo)
 	state.apply_force(v_extra, force_point)
 

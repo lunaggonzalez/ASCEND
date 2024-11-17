@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d037sem1a3h5t" path="res://art/Starship.png" id="2_rndmo"]
 [ext_resource type="Shape2D" uid="uid://but12wn0byn3s" path="res://collision/world.tres" id="3_yv1fu"]
 [ext_resource type="Texture2D" uid="uid://dnwhjtkkfmej8" path="res://assets/space.jpg" id="4_6wmgm"]
-[ext_resource type="Texture2D" uid="uid://0qb1jp1e3xw8" path="res://scenes/Screenshot 2024-11-16 at 5.53.46 PM.png" id="5_v4tf0"]
+[ext_resource type="Texture2D" uid="uid://0qb1jp1e3xw8" path="res://art/Screenshot 2024-11-16 at 5.53.46 PM.png" id="5_v4tf0"]
 
 [node name="Area2D" type="Area2D"]
 position = Vector2(-5046, 2502)

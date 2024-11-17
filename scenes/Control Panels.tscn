@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://nayi74h52ddu"]
 
-[ext_resource type="Script" path="res://scenes/sliders.gd" id="1_ct4nj"]
-[ext_resource type="Texture2D" uid="uid://0qb1jp1e3xw8" path="res://scenes/Screenshot 2024-11-16 at 5.53.46 PM.png" id="2_j7mvn"]
+[ext_resource type="Script" path="res://scripts/sliders.gd" id="1_ct4nj"]
+[ext_resource type="Texture2D" uid="uid://0qb1jp1e3xw8" path="res://art/Screenshot 2024-11-16 at 5.53.46 PM.png" id="2_j7mvn"]
 
 [node name="ControlPanels" type="Control"]
 layout_mode = 3
