@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed(\"ui_accept\"):
 		gameStarted = true
 		emit_signal(\"startSignal\", gameStarted)
-		get_tree().change_scene_to_file(\"res://scenes/Control Panels.tscn\")
+		get_tree().change_scene_to_file(\"res://scenes/area_2d.tscn\")
 "
 
 [node name="Label" type="Label"]
