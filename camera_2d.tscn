@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx0e2g763xbse"]
+
+[ext_resource type="Texture2D" uid="uid://c87xswecifxkj" path="res://assets/firstimage.jpg" id="1_aqp2w"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g2m86"]
+normal = Vector2(0.00371745, -0.999993)
+distance = -168.022
+
+[node name="test" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(563, 328.5)
+scale = Vector2(1.21875, 0.902571)
+texture = ExtResource("1_aqp2w")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(550, 330)
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_times = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(501, 291)
+shape = SubResource("WorldBoundaryShape2D_g2m86")
