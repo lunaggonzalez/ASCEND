@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cg48tx0xdy5o6"]
 
-[ext_resource type="Script" path="res://scenes/sprite_2d.gd" id="1_tvose"]
+[ext_resource type="Script" path="res://scripts/sprite_2d.gd" id="1_tvose"]
 [ext_resource type="PackedScene" uid="uid://dx0e2g763xbse" path="res://camera_2d.tscn" id="2_a5mf7"]
 
 [node name="Space" type="Node2D"]
