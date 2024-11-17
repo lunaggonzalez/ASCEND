@@ -19,3 +19,10 @@ config/icon="res://icon.svg"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[input]
+
+ui_2_down={
+"deadzone": 0.5,
+"events": []
+}

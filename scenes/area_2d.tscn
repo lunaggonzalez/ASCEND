@@ -1,40 +1,51 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0ohcpod72tyt"]
+[gd_scene load_steps=10 format=3 uid="uid://b0ohcpod72tyt"]
 
 [ext_resource type="Script" path="res://scripts/rocket.gd" id="1_jsk8g"]
 [ext_resource type="Texture2D" uid="uid://d037sem1a3h5t" path="res://art/Starship.png" id="2_rndmo"]
 [ext_resource type="Shape2D" uid="uid://but12wn0byn3s" path="res://collision/world.tres" id="3_yv1fu"]
 [ext_resource type="Texture2D" uid="uid://dnwhjtkkfmej8" path="res://assets/space.jpg" id="4_6wmgm"]
-[ext_resource type="Texture2D" uid="uid://0qb1jp1e3xw8" path="res://art/Screenshot 2024-11-16 at 5.53.46 PM.png" id="5_v4tf0"]
+[ext_resource type="Texture2D" uid="uid://0qb1jp1e3xw8" path="res://assets/Screenshot 2024-11-16 at 5.53.46 PM.png" id="5_v4tf0"]
+[ext_resource type="Texture2D" uid="uid://5qmxm1h2keti" path="res://assets/Screenshot_2024-11-16_at_10.27.11_PM-removebg-preview.png" id="6_x7gv4"]
+[ext_resource type="Texture2D" uid="uid://hxfolqx5177t" path="res://assets/Screenshot_2024-11-16_at_10.41.29_PM-removebg-preview.png" id="7_oahwp"]
+[ext_resource type="Script" path="res://scripts/fuel_needle.gd" id="8_lgc0x"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pn1x4"]
+viewport_path = NodePath("SubViewport2")
 
 [node name="Area2D" type="Area2D"]
-position = Vector2(-5046, 2502)
+position = Vector2(168, -99)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(401, 515)
+[node name="SubViewport2" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1150, 650)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="SubViewport2"]
+position = Vector2(-6737, 1425)
 mass = 5.0
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, 150)
 script = ExtResource("1_jsk8g")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport2/RigidBody2D"]
 position = Vector2(0, -1)
 polygon = PackedVector2Array(0, -180, 15, -150, 15, 180, -15, 180, -15, -150)
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D/CollisionPolygon2D"]
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport2/RigidBody2D/CollisionPolygon2D"]
 scale = Vector2(0.175, 0.175)
 texture = ExtResource("2_rndmo")
 region_rect = Rect2(0, 0, 80, 180)
 
-[node name="Camera2D" type="Camera2D" parent="RigidBody2D"]
-position = Vector2(4, -125)
+[node name="Camera2D" type="Camera2D" parent="SubViewport2/RigidBody2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="SubViewport2"]
+position = Vector2(-7137, 908)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport2/StaticBody2D"]
 position = Vector2(0, 200)
 shape = ExtResource("3_yv1fu")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport2/StaticBody2D/CollisionShape2D"]
 visibility_layer = 2
 z_index = -10
 position = Vector2(-26472.5, -36457)
@@ -44,72 +55,92 @@ texture = ExtResource("4_6wmgm")
 [node name="Sliders" type="Node2D" parent="."]
 position = Vector2(-171, 76)
 
-[node name="Sprite2D" type="Sprite2D" parent="Sliders"]
-position = Vector2(574.639, 557.5)
+[node name="CanvasLayer" type="CanvasLayer" parent="Sliders"]
+layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Sliders/CanvasLayer"]
+position = Vector2(575.359, 557.5)
 scale = Vector2(1.29677, 0.70082)
 texture = ExtResource("5_v4tf0")
 
-[node name="Label" type="Label" parent="Sliders"]
-offset_left = -2.0
+[node name="Label" type="Label" parent="Sliders/CanvasLayer"]
+offset_left = -1.27972
 offset_top = 607.0
-offset_right = 72.0
+offset_right = 72.7203
 offset_bottom = 630.0
 text = "Methane "
 metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="Sliders"]
-offset_left = 38.0
+[node name="Label2" type="Label" parent="Sliders/CanvasLayer"]
+offset_left = 38.7203
 offset_top = 490.0
-offset_right = 149.0
+offset_right = 149.72
 offset_bottom = 513.0
 text = "Liquid Oxygen"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label3" type="Label" parent="Sliders"]
-offset_left = 129.0
+[node name="Label3" type="Label" parent="Sliders/CanvasLayer"]
+offset_left = 129.72
 offset_top = 607.0
-offset_right = 240.0
+offset_right = 240.72
 offset_bottom = 630.0
 text = "Mass"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label4" type="Label" parent="Sliders"]
-offset_left = 248.0
+[node name="Label4" type="Label" parent="Sliders/CanvasLayer"]
+offset_left = 248.72
 offset_top = 489.0
-offset_right = 359.0
+offset_right = 359.72
 offset_bottom = 512.0
 text = "Wind"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label5" type="Label" parent="Sliders"]
-offset_left = 222.0
+[node name="Label5" type="Label" parent="Sliders/CanvasLayer"]
+offset_left = 222.72
 offset_top = 512.0
-offset_right = 333.0
+offset_right = 333.72
 offset_bottom = 535.0
 text = "<- launchpad"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label6" type="Label" parent="Sliders"]
-offset_left = 221.0
+[node name="Label6" type="Label" parent="Sliders/CanvasLayer"]
+offset_left = 221.72
 offset_top = 539.0
-offset_right = 334.0
+offset_right = 334.72
 offset_bottom = 588.0
 text = "upper 
 atmosphere ->"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label7" type="Label" parent="Sliders"]
-offset_left = 363.0
+[node name="Label7" type="Label" parent="Sliders/CanvasLayer"]
+offset_left = 363.72
 offset_top = 605.0
-offset_right = 476.0
+offset_right = 476.72
 offset_bottom = 654.0
 text = "Temp (*F)"
 metadata/_edit_use_anchors_ = true
 
-[node name="Methane" type="VSlider" parent="Sliders"]
-offset_left = 31.0
+[node name="Label8" type="Label" parent="Sliders/CanvasLayer"]
+offset_left = 423.72
+offset_top = 483.0
+offset_right = 556.72
+offset_bottom = 532.0
+text = "Engine Power (%)"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label9" type="Label" parent="Sliders/CanvasLayer"]
+offset_left = 605.72
+offset_top = 472.0
+offset_right = 738.72
+offset_bottom = 521.0
+text = "Fuel"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Methane" type="VSlider" parent="Sliders/CanvasLayer"]
+offset_left = 31.7203
 offset_top = 518.0
-offset_right = 47.0
+offset_right = 47.7203
 offset_bottom = 607.0
 min_value = 500.0
 max_value = 4000.0
@@ -117,10 +148,10 @@ step = 100.0
 value = 900.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Oxygen" type="VSlider" parent="Sliders"]
-offset_left = 83.0
+[node name="Oxygen" type="VSlider" parent="Sliders/CanvasLayer"]
+offset_left = 83.7203
 offset_top = 518.0
-offset_right = 99.0
+offset_right = 99.7203
 offset_bottom = 607.0
 min_value = 500.0
 max_value = 4000.0
@@ -128,50 +159,79 @@ step = 100.0
 value = 900.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Mass" type="VSlider" parent="Sliders"]
-offset_left = 139.0
+[node name="Mass" type="VSlider" parent="Sliders/CanvasLayer"]
+offset_left = 139.72
 offset_top = 518.0
-offset_right = 155.0
+offset_right = 155.72
 offset_bottom = 607.0
 max_value = 25.0
 step = 5.0
 value = 5.0
 metadata/_edit_use_anchors_ = true
 
-[node name="VSlider4" type="VSlider" parent="Sliders"]
-offset_left = 200.0
+[node name="VSlider4" type="VSlider" parent="Sliders/CanvasLayer"]
+offset_left = 200.72
 offset_top = 518.0
-offset_right = 216.0
+offset_right = 216.72
 offset_bottom = 607.0
 max_value = 50.0
 step = 5.0
 metadata/_edit_use_anchors_ = true
 
-[node name="VSlider5" type="VSlider" parent="Sliders"]
-offset_left = 336.0
+[node name="VSlider5" type="VSlider" parent="Sliders/CanvasLayer"]
+offset_left = 336.72
 offset_top = 518.0
-offset_right = 352.0
+offset_right = 352.72
 offset_bottom = 607.0
 max_value = 300.0
 step = 30.0
 metadata/_edit_use_anchors_ = true
 
-[node name="VSlider6" type="VSlider" parent="Sliders"]
-offset_left = 388.0
+[node name="VSlider6" type="VSlider" parent="Sliders/CanvasLayer"]
+offset_left = 388.72
 offset_top = 518.0
-offset_right = 404.0
+offset_right = 404.72
 offset_bottom = 607.0
 step = 10.0
 metadata/_edit_use_anchors_ = true
 
-[node name="launch" type="Button" parent="Sliders"]
-offset_left = 809.0
-offset_top = 504.0
-offset_right = 1113.0
-offset_bottom = 616.0
-text = "Launch"
+[node name="VSlider7" type="VSlider" parent="Sliders/CanvasLayer"]
+offset_left = 470.72
+offset_top = 513.0
+offset_right = 486.72
+offset_bottom = 602.0
+step = 10.0
+metadata/_edit_use_anchors_ = true
 
-[connection signal="value_changed" from="Sliders/Methane" to="RigidBody2D" method="_on_methane_value_changed"]
-[connection signal="value_changed" from="Sliders/Oxygen" to="RigidBody2D" method="_on_oxygen_value_changed"]
-[connection signal="value_changed" from="Sliders/Mass" to="RigidBody2D" method="_on_mass_value_changed"]
-[connection signal="pressed" from="Sliders/launch" to="RigidBody2D" method="_on_launch_pressed"]
+[node name="launch" type="Button" parent="Sliders/CanvasLayer"]
+offset_left = 832.72
+offset_top = 503.0
+offset_right = 1136.72
+offset_bottom = 615.0
+text = "Launch"
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sliders/CanvasLayer"]
+position = Vector2(655.72, 558)
+scale = Vector2(0.464286, 0.422011)
+texture = ExtResource("6_x7gv4")
+
+[node name="fuelNeedle" type="Sprite2D" parent="Sliders/CanvasLayer"]
+position = Vector2(674.72, 567)
+scale = Vector2(0.457447, 0.492806)
+texture = ExtResource("7_oahwp")
+offset = Vector2(4, 0)
+script = ExtResource("8_lgc0x")
+
+[node name="TextureRect" type="TextureRect" parent="Sliders"]
+z_index = -4
+offset_right = 1150.0
+offset_bottom = 650.0
+texture = SubResource("ViewportTexture_pn1x4")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="fuel_value" from="SubViewport2/RigidBody2D" to="Sliders/CanvasLayer/fuelNeedle" method="_on_rigid_body_2d_fuel_value"]
+[connection signal="value_changed" from="Sliders/CanvasLayer/Methane" to="SubViewport2/RigidBody2D" method="_on_methane_value_changed"]
+[connection signal="value_changed" from="Sliders/CanvasLayer/Oxygen" to="SubViewport2/RigidBody2D" method="_on_oxygen_value_changed"]
+[connection signal="value_changed" from="Sliders/CanvasLayer/Mass" to="SubViewport2/RigidBody2D" method="_on_mass_value_changed"]
+[connection signal="pressed" from="Sliders/CanvasLayer/launch" to="SubViewport2/RigidBody2D" method="_on_launch_pressed"]
