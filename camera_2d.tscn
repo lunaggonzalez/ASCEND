@@ -20,5 +20,5 @@ position = Vector2(550, 330)
 repeat_times = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(501, 291)
+position = Vector2(501, 293)
 shape = SubResource("WorldBoundaryShape2D_g2m86")
