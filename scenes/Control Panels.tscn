@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://nayi74h52ddu"]
 
-[ext_resource type="Script" path="res://scenes/sliders.gd" id="1_ct4nj"]
-[ext_resource type="Texture2D" uid="uid://0qb1jp1e3xw8" path="res://scenes/Screenshot 2024-11-16 at 5.53.46 PM.png" id="2_j7mvn"]
+[ext_resource type="Script" path="res://scripts/sliders.gd" id="1_ct4nj"]
+[ext_resource type="Texture2D" uid="uid://0qb1jp1e3xw8" path="res://art/Screenshot 2024-11-16 at 5.53.46 PM.png" id="2_j7mvn"]
 
 [node name="ControlPanels" type="Control"]
 layout_mode = 3
@@ -73,7 +73,7 @@ offset_right = 476.0
 offset_bottom = 654.0
 text = "Temp (*F)"
 
-[node name="VSlider" type="VSlider" parent="Sliders"]
+[node name="Fuel" type="VSlider" parent="Sliders"]
 offset_left = 31.0
 offset_top = 518.0
 offset_right = 47.0
@@ -93,15 +93,14 @@ max_value = 4500.0
 step = 100.0
 value = 3500.0
 
-[node name="VSlider3" type="VSlider" parent="Sliders"]
+[node name="Mass" type="VSlider" parent="Sliders"]
 offset_left = 139.0
 offset_top = 518.0
 offset_right = 155.0
 offset_bottom = 607.0
-min_value = 4000.0
-max_value = 6000.0
-step = 200.0
-value = 4000.0
+max_value = 25.0
+step = 5.0
+value = 5.0
 
 [node name="VSlider4" type="VSlider" parent="Sliders"]
 offset_left = 200.0

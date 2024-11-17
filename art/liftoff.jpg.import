@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yc4v8ina76pm"
-path="res://.godot/imported/space.jpg-6cb6cec09ffa3b679a1b93e94ab743ea.ctex"
+uid="uid://60blu8nkurn8"
+path="res://.godot/imported/liftoff.jpg-55952f356b014428e9dada58eeb68868.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/space.jpg"
-dest_files=["res://.godot/imported/space.jpg-6cb6cec09ffa3b679a1b93e94ab743ea.ctex"]
+source_file="res://art/liftoff.jpg"
+dest_files=["res://.godot/imported/liftoff.jpg-55952f356b014428e9dada58eeb68868.ctex"]
 
 [params]
 

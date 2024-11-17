@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkaeo4cu3bwqs"]
+
+[ext_resource type="Texture2D" uid="uid://60blu8nkurn8" path="res://art/liftoff.jpg" id="1_8bw6k"]
+
+[node name="LaunchWin" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8bw6k")
+centered = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 160.0
+offset_right = 408.0
+offset_bottom = 300.0
+theme_override_font_sizes/normal_font_size = 50
+text = "Takeoff Successful!"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 515.0
+offset_right = 340.0
+offset_bottom = 640.0
+text = "To Stage 1 & Fairing Recovery"
