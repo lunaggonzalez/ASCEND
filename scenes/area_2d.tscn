@@ -60,7 +60,7 @@ offset_bottom = 108.0
 text = "Launch Velocity Multiplier"
 autowrap_mode = 2
 
-[node name="HSlider" type="HSlider" parent="Panel"]
+[node name="CenterOfMass" type="HSlider" parent="Panel"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 6.0
@@ -69,6 +69,17 @@ offset_bottom = 22.0
 min_value = -100.0
 max_value = 180.0
 value = 40.0
+
+[node name="Weight" type="HSlider" parent="Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 189.0
+offset_right = 167.0
+offset_bottom = 205.0
+min_value = 1.0
+max_value = 50.0
+step = 5.0
+value = 1.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -81,4 +92,5 @@ position = Vector2(405, 390)
 
 [connection signal="pressed" from="Panel/Button" to="RigidBody2D" method="_on_button_pressed"]
 [connection signal="item_selected" from="Panel/OptionButton" to="RigidBody2D" method="_on_option_button_item_selected"]
-[connection signal="value_changed" from="Panel/HSlider" to="RigidBody2D" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Panel/CenterOfMass" to="RigidBody2D" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Panel/Weight" to="RigidBody2D" method="_on_weight_value_changed"]
