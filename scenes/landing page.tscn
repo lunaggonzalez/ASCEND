@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://kcbxo3s06fjq"]
+
+[ext_resource type="Script" path="res://scenes/landing_page.gd" id="1_144rx"]
+[ext_resource type="Texture2D" uid="uid://cp0wftpomx6wi" path="res://scenes/purplebackground.png" id="2_0ws2m"]
+
+[node name="LandingPage" type="Node2D"]
+position = Vector2(1, 1)
+script = ExtResource("1_144rx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(570, 326)
+scale = Vector2(0.591667, 0.6)
+texture = ExtResource("2_0ws2m")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 312.0
+offset_top = 260.0
+offset_right = 830.0
+offset_bottom = 417.0
+theme_override_font_sizes/font_size = 25
+text = "Welcome to the Ascend Starship simulator! 
+	             Press the return key to start!"
