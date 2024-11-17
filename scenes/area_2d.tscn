@@ -1,25 +1,25 @@
 [gd_scene load_steps=4 format=3 uid="uid://b0ohcpod72tyt"]
 
 [ext_resource type="Script" path="res://scripts/rocket.gd" id="1_jsk8g"]
-[ext_resource type="Texture2D" uid="uid://bhtskpnd2fes" path="res://art/rocket.tres" id="1_tf5qb"]
+[ext_resource type="Texture2D" uid="uid://d037sem1a3h5t" path="res://art/Starship.png" id="2_rndmo"]
 [ext_resource type="Shape2D" uid="uid://but12wn0byn3s" path="res://collision/world.tres" id="3_yv1fu"]
 
 [node name="Area2D" type="Area2D"]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(403, 393)
+position = Vector2(401, 515)
+mass = 5.0
 center_of_mass_mode = 1
-center_of_mass = Vector2(0, 40)
+center_of_mass = Vector2(0, 150)
 script = ExtResource("1_jsk8g")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
 position = Vector2(0, -1)
-polygon = PackedVector2Array(0, -100, 40, 0, 40, 180, -40, 180, -40, 0)
+polygon = PackedVector2Array(0, -180, 15, -150, 15, 180, -15, 180, -15, -150)
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D/CollisionPolygon2D"]
-position = Vector2(0, 90)
-texture = ExtResource("1_tf5qb")
-region_enabled = true
+scale = Vector2(0.175, 0.175)
+texture = ExtResource("2_rndmo")
 region_rect = Rect2(0, 0, 80, 180)
 
 [node name="Panel" type="Panel" parent="."]
@@ -76,10 +76,9 @@ offset_left = 3.0
 offset_top = 189.0
 offset_right = 167.0
 offset_bottom = 205.0
-min_value = 1.0
-max_value = 50.0
+max_value = 25.0
 step = 5.0
-value = 1.0
+value = 5.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

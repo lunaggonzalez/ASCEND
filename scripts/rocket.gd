@@ -29,4 +29,7 @@ func _on_h_slider_value_changed(value: float) -> void:
 
 
 func _on_weight_value_changed(value: float) -> void:
-	set_mass(value)
+	if value == 0:
+		set_mass(1)
+	else:
+		set_mass(value)
